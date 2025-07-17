@@ -5,13 +5,23 @@ Here is the **full `README.md`** content for your Job Listing Application — in
 ```markdown
 # 🧑‍💼 Job Listing Application
 
-A full-stack job listing application built using **React**, **Redux Toolkit**, **Tailwind CSS**, **Node.js**, **Express**, and **MongoDB**. This project allows users to explore job listings, filter them by location, view detailed job information, and interact with a clean, responsive UI.
+A full-stack job listing application built using **React**, **Redux Toolkit**, **Tailwind CSS**, **Node.js**, **Express**, and **MongoDB**. This project allows users to explore job listings, filter them by location, view detailed job information, and interact with a clean UI.
+
+## 🔑 Main Features
+
+- **Redux Toolkit** for centralized state management  
+- **Pagination** to navigate job listings page by page  
+- **Search Filter by Location**  
+- **Client-side Caching** to avoid redundant API calls  
+- **Job Detail View** with extended information  
+- **Full-stack architecture** (Frontend + Backend + Database)
+
 
 ---
 
 ## 🔗 Live Demo
 
-🚧 *Coming soon...*
+🚧 https://job-listing-app-ll2z.vercel.app
 
 ---
 
@@ -171,24 +181,6 @@ GET http://localhost:5000/api/jobs?page=2&limit=10&location=Hyderabad
 * 📋 **JobDetails**: View full job description and attributes like posted date, employment type, etc.
 * 🔍 **SearchBox**: Location search input with clear (`×`) button
 * 📦 **Pagination**: Loads jobs page-wise with cache for faster repeat loads
-
----
-
-## 🌈 Common Tailwind Utility Classes
-
-Defined in `index.css` under `@layer components`:
-
-* `.btn-primary`, `.btn-secondary`, `.btn-danger`
-* `.heading-lg`, `.heading-md`, `.heading-sm`
-* `.card`, `.input-field`, `.label`, `.divider`
-
----
-
-## 📷 Screenshots
-
-> *Add images of your UI here — Job list view, detail view, and filter in action*
-
----
 
 ## 📄 .gitignore (backend)
 
