@@ -22,7 +22,7 @@ export const getJobs = createAsyncThunk(
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/jobs?page=${page}&limit=${limit}&location=${encodeURIComponent(locationQuery)}`
+        `${process.env.REACT_APP_BACKEND_API}/api/jobs?page=${page}&limit=${limit}&location=${encodeURIComponent(locationQuery)}`
       );
 
       return {
@@ -51,7 +51,6 @@ export const jobSlice = createSlice({
     limit: 10,
     locationQuery: "",
     jobCache: {},
-
     error: {
       isError: false,
       message: "",
@@ -94,7 +93,6 @@ export const jobSlice = createSlice({
         state.totalPages = totalPages;
         state.totalJobs = totalJobs;
         state.locationQuery = locationQuery;
-
         state.jobCache[cacheKey] = {
           jobs,
           totalPages,
