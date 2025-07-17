@@ -19,11 +19,21 @@ app.use(cors({
     methods: 'GET,POST,PUT,DELETE,PATCH', 
     credentials: true, 
   }));
+
+  app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", process.env.CLIENT_URL);
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,PATCH,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
 app.use(express.json());
 
-// Root route
+// Job Route
 app.use('/api/jobs', jobRouter)
 
 // Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+module.exports.handler = serverless(app);
