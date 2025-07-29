@@ -4,6 +4,8 @@ import JobList from "./components/JobList";
 import JobDetails from "./components/JobDetails";
 import { useDispatch, useSelector } from "react-redux";
 import { getJobs } from "./redux/jobSlice";
+import SearchBox from "./components/SearchBox";
+import Loader from "./components/Loader";
 
 function App() {
   const dispatch = useDispatch();
@@ -15,10 +17,11 @@ function App() {
   }, [dispatch]);
   return (
     <div>
+      <SearchBox />
       {jobs && (
         <div className="flex font-sans">
           {isLoading ? (
-            <div>Loading</div>
+            <Loader/>
           ) : (
             <>
               <JobList />

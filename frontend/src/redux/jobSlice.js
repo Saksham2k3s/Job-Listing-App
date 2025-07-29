@@ -74,7 +74,8 @@ export const jobSlice = createSlice({
       }
     },
     setLocationQuery: (state, action) => {
-      state.locationQuery = action.payload;
+      const location = action.payload;
+      state.locationQuery = location.trim() || "";
     },
   },
 

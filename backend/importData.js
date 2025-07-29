@@ -1,7 +1,7 @@
 // Script to import job data from a JSON file into MongoDB
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Job = require('./models/job');
+const Job = require('./models/jobModel');
 const rawJobs = require('./data/jobs.json');
 
 dotenv.config();
@@ -16,13 +16,12 @@ mongoose.connect(process.env.MONGO_URI, {
     // Clear old data
     await Job.deleteMany();
 
-    // Use a Set to track duplicates
     const seenIds = new Set();
     const jobs = [];
 
     rawJobs.forEach((job) => {
       const jobId = parseInt(job.jobId?.$numberLong || job.jobId);
-
+      
       if (!jobId || isNaN(jobId) || seenIds.has(jobId)) {
         console.warn("Skipping duplicate or invalid jobId:", jobId);
         return;
